@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" theme="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,53 +18,68 @@
     <script type="module" src="./dist/js/index.js" defer></script>
     <script src="./dist/js/materialize.min.js" defer></script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6C5HDV7KFB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-6C5HDV7KFB');
     </script>
 </head>
 
 <body>
-    <!-- Loading Text -->
+    <!-- Loading indicator -->
     <span class="loadingtext hide">Loading...</span>
+    
     <div class="main">
-        <!-- Left Sidenav -->
+        <!-- Sidebar Menu -->
         <div class="sidenav z-depth-5 leftmenu-sidebar" id="slide-out">
+            <!-- User Profile Section -->
             <div class="user-view z-depth-2">
                 <div class="account-information">
-                    <div class="account-info-background background"><img src="images/code-background2.png" loading="lazy"></div>
+                    <div class="account-info-background background">
+                        <img src="images/code-background2.png" loading="lazy">
+                    </div>
                     <div class="account-information-user">
                         <img src="" alt="avatar" id="discord-avatar">
                         <li>
                             <div class="account-information-name">
                                 <span id="account_username">N/A</span>
-                                <span id="account-information-perms" class="tooltipped" data-tooltip="The access level of your account." data-position="right">N/A</span>
+                                <span id="account-information-perms" class="tooltipped" data-tooltip="Account access level" data-position="right">N/A</span>
                             </div>
                             <span id="account_id">N/A</span>
                         </li>
-                        <a class="btn-floating waves-effect waves-light transparent account-login tooltipped" data-tooltip="Login" data-position="right"><i class="material-icons">login</i></a>
+                        <a class="btn-floating waves-effect waves-light transparent account-login tooltipped" data-tooltip="Login" data-position="right">
+                            <i class="material-icons">login</i>
+                        </a>
                     </div>
-                    <a class="btn-floating waves-effect waves-light transparent account-logout tooltipped" data-tooltip="Logout" data-position="right"><i class="material-icons">logout</i></a>
+                    <a class="btn-floating waves-effect waves-light transparent account-logout tooltipped" data-tooltip="Logout" data-position="right">
+                        <i class="material-icons">logout</i>
+                    </a>
                 </div>
                 <div class="sidenav-loading progress">
                     <div class="indeterminate"></div>
                 </div>
             </div>
-            <div class="seperator text tooltipped seperator-margin" data-position="right" data-tooltip="Some statistics about GoofyLuaUglifier.">
+
+            <!-- Statistics Section -->
+            <div class="seperator text tooltipped seperator-margin" data-position="right" data-tooltip="GoofyLuaUglifier statistics">
                 <span>Statistics</span>
             </div>
             <div class="info-content glu-statistics">
-                <div class="glu-statistic tooltipped" data-tooltip="Total count of API requests." data-position="right"><span class="glu-statistic-name">Total Requests:</span><span id="total_requests" class="glu-statistic-value">Loading...</span></div>
-                <div class="glu-statistic tooltipped" data-tooltip="Total count of called functions." data-position="right"><span class="glu-statistic-name">Total Functions:</span><span id="total_functions_called" class="glu-statistic-value">Loading...</span></div>
+                <div class="glu-statistic tooltipped" data-tooltip="Total API requests" data-position="right">
+                    <span class="glu-statistic-name">Total Requests:</span>
+                    <span id="total_requests" class="glu-statistic-value">Loading...</span>
+                </div>
+                <div class="glu-statistic tooltipped" data-tooltip="Total function calls" data-position="right">
+                    <span class="glu-statistic-name">Total Functions:</span>
+                    <span id="total_functions_called" class="glu-statistic-value">Loading...</span>
+                </div>
             </div>
-            <div class="seperator text tooltipped seperator-margin" data-position="right" data-tooltip="List of recent updates and changes.">
+
+            <!-- Updates Section -->
+            <div class="seperator text tooltipped seperator-margin" data-position="right" data-tooltip="Recent updates and changes">
                 <span>Updates <span class="updates-new-label" notif-count="0"></span></span>
             </div>
             <div class="info-content glu-updates">
@@ -78,20 +92,27 @@
                     </div>
                 </template>
             </div>
+
+            <!-- Footer -->
             <footer class="sidenav-footer">
                 <div class="sidenav-footer-content">
-                    <small style="font-family: monospace;"><a href="https://github.com/mopsfl/GoofyLuaUglifier" target="_blank">Github</a></small>
+                    <small style="font-family: monospace;">
+                        <a href="https://github.com/mopsfl/GoofyLuaUglifier" target="_blank">Github</a>
+                    </small>
                     <span>&bull;</span>
-                    <small style="font-family: monospace;"><a href="https://docs.mopsfl.de" target="_blank">API Documentation</a></small>
+                    <small style="font-family: monospace;">
+                        <a href="https://docs.mopsfl.de" target="_blank">API Documentation</a>
+                    </small>
                     <small style="font-family: monospace;" class="copyrightthing">&copy; 2025 mopsfl</small>
                 </div>
             </footer>
         </div>
-        <!-- Monaco Editor Container -->
+
+        <!-- Code Editor -->
         <div class="code-area monaco"></div>
-        <!-- Toolbox Sidebar -->
+
+        <!-- Function Toolbox -->
         <div class="sidebar">
-            <!-- Functions -->
             <p class="sidebar-title">GoofyLuaUglifier</p>
             <div class="sidebar-buttons" id="functionbtns-sidebar">
                 <template class="function-category-title-template">
@@ -101,82 +122,44 @@
                 </template>
                 <template class="function-btn-template">
                     <button class="function-btn waves-effect waves-light btn no-padding tooltipped green" data-position="left">
-                        <i class="material-icons center" id="function-icon">N/A</i><span id="function-name">N/A</span></button>
+                        <i class="material-icons center" id="function-icon">N/A</i>
+                        <span id="function-name">N/A</span>
+                    </button>
                 </template>
             </div>
         </div>
-        <!-- Info Modal Button -->
-        <!--<button class="waves-effect waves-light btn-floating modal-trigger btn-small transparent infomodal-openbtn tooltipped" data-position="right" data-tooltip="Info" href="#infomodal">
-            <i class="material-icons center">info</i>
-        </button>-->
-        <!-- Info Modal -->
-        <!--<div>
-            <div id="infomodal" class="modal">
-                <div class="modal-content">
-                    <h4>Info</h4>
-                    <p>GoofyLuaUglifier is currently only optimized for
-                        <b>Lua 5.3</b>. Any other versions below might not be fully compatible.
-                    </p>
-                    <div class="divider"></div>
-                    <br>
-                    <div class="info-content">
-                        <small style="font-family: monospace;">Roblox Constants Last Updated: <span id="rbxc_lastupdated">Loading...</span>
-                            <div class="btn btn-small rbxc_update waves-effect waves-light tooltipped green" data-position="right" data-tooltip="Requests an update of the Roblox constants list to the server.">Update now</div>
-                        </small>
-                    </div>
-                    <div class="info-content">
-                        <small style="font-family: monospace; display: flex;">Account: <img src="" alt="" id="discord-avatar"><span id="account_username">Loading...</span> (<span id="account_id">N/A</span>)
-                            <div class="btn btn-small waves-effect waves-light green acc_login">Login</div>
-                            <div class="btn btn-small waves-effect waves-light green acc_logout">Logout</div>
-                        </small>
-                    </div>
-                    <div class="info-content">
-                        <small style="font-family: monospace;">Tester Access: <span id="tester_access">No</span></small>
-                    </div>
-                    <br>
-                    <div class="divider"></div>
-                    <br>
-                    <div class="info-content">
-                        <small style="font-family: monospace;">Total Requests: <span id="total_requests">Loading...</span> |</small>
-                        <small style="font-family: monospace;">Total Functions Called: <span id="total_functions_called">Loading...</span></small>
-                    </div>
-                    <div class="api-info">
-                        <small style="font-family: monospace;"><a href="https://docs.mopsfl.de" target="_blank">API Documentation</a></small>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button href="#!" class="modal-close waves-light waves-effect btn green">OK</button>
-                </div>
-            </div>
-        </div>-->
+
         <!-- Settings Modal -->
         <div id="settingsmodal" class="modal bottom-sheet modal-fixed-footer">
             <div class="modal-content">
                 <h4>Settings</h4>
                 <div class="settings-grid">
+                    <!-- Output Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Minifies the output code after the uglification.">Minify Output</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Minifies the output code after uglification">Minify Output</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="minify_output" checked="true" />
                             <span></span>
                         </label>
                     </div>
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Beautifies the output code after the uglification.">Beautify Output</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Beautifies the output code after uglification">Beautify Output</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="beautify_output" checked="true" />
                             <span></span>
                         </label>
                     </div>
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Wraps your output code into a return statement.">Wrap Code</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Wraps output code in return statement">Wrap Code</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="returnwrap_code" checked="false" />
                             <span></span>
                         </label>
                     </div>
+                    
+                    <!-- Lua Version -->
                     <div class="setting input-field select-dropdown col s12">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="For what lua version your script should be optimized for.">Target Lua Version</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Target Lua version for optimization">Target Lua Version</span>
                         <select id="target_lua_version">
                             <option value="0">5.1</option>
                             <option value="1">5.2</option>
@@ -187,19 +170,12 @@
                         </select>
                         <label>Materialize Select</label>
                     </div>
-                    <!--<div class="setting">
-                        <span class="setting-name">test slider</span>
-                        <label class="slider-setting">
-                            <p class="range-field">
-                                <input type="range" id="test_slider" min="0" max="100" value="50"/>
-                            </p>
-                            <span class="slider-value" value-type="%"></span>
-                        </label>
-                    </div>-->
+
                     <div class="seperator"></div>
 
+                    <!-- Editor Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Saves the editor code and loads it back when you open the page again.">Save Editor Code</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Saves editor code and loads on page reload">Save Editor Code</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="save_editor_code" checked="false" />
                             <span></span>
@@ -208,15 +184,16 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Bytecode Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Ignore any Bytecode like string. (e.g. string encryption)">Ignore Bytecode</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Ignore bytecode-like strings">Ignore Bytecode</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="ignore_bytecode" checked="false" />
                             <span></span>
                         </label>
                     </div>
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Ignore any encrypted byte like string. (e.g. string encryption)">Ignore Bytestring</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Ignore encrypted byte strings">Ignore Bytestring</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="ignore_bytestring" checked="false" />
                             <span></span>
@@ -225,23 +202,26 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Character Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="If the <code>Nonsense Strings</code> function should use chinese characters.">Chinese Nonsense Characters</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Use Chinese characters in nonsense strings">Chinese Nonsense Characters</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="chinese_nonsense_characters" checked="false" />
                             <span></span>
                         </label>
                     </div>
 
+                    <!-- Number Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="The limit of how many strings can be created until it truncates.">Number Nonsense Length Limit</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Maximum length for number nonsense strings">Number Nonsense Length Limit</span>
                         <div class="input-field">
                             <input placeholder="Length" id="number_nonsense_length_limit" type="number" class="validate">
                         </div>
                     </div>
 
+                    <!-- Byte String Type -->
                     <div class="setting input-field select-dropdown col s12">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="The format for representing the bytes in the byte string.">Bytestring Byte Type</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Format for byte representation">Bytestring Byte Type</span>
                         <select id="byte_string_type">
                             <option value="0" selected>Hexadecimal</option>
                             <option value="1">Decimal</option>
@@ -251,15 +231,16 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Advanced Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="If the function <code>ByteEncrypt</code> should encrypt all constant types except of only strings.">ByteEncrypt All Constants</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Encrypt all constant types, not just strings">ByteEncrypt All Constants</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="byte_encrypt_all_constants" checked="false" />
                             <span></span>
                         </label>
                     </div>
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="If global function names should be renamed by the <code>Identifiers</code> method.<br><br>Turning this on, might break the script when using string encryptions & GLookup!">Rename Global Functions</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Rename global functions (may break with string encryption)">Rename Global Functions</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="rename_global_functions" checked="false" />
                             <span></span>
@@ -268,14 +249,15 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Table Length Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Adds your given strings into the <code>Table Length</code> values.">Table Length Number - Memestrings</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Custom strings for Table Length values">Table Length Memestrings</span>
                         <div class="input-field">
                             <input placeholder="e.g.: Hello, World, ..." id="table_length_number_memestrings" type="text" class="validate">
                         </div>
                     </div>
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Rate of the random table values for the <code>Table Length</code> method.">Table Length Number - Rate</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Rate of random table values">Table Length Rate</span>
                         <label class="slider-setting">
                             <p class="range-field">
                                 <input type="range" id="table_length_number_rate" min="0" max="100" value="25" />
@@ -286,16 +268,16 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Math Transform Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Use all math operators for the number transform (<code>/</code> & <code>*</code>). <b>(very unstable)</b>">All Number Transform Math Operators</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Use all math operators (unstable)">All Math Operators</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="use_all_mathoperators_number_transform" checked="false" />
                             <span></span>
                         </label>
                     </div>
-
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="The length of the random transform offset number.">Number Transform Offset Length</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Length of random transform offset">Transform Offset Length</span>
                         <div class="input-field">
                             <input placeholder="Length" id="number_transform_offset_length" type="number" class="validate">
                         </div>
@@ -303,21 +285,9 @@
 
                     <div class="seperator"></div>
 
-                    <!--<div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Adds a watermark to your script. (keep empty to disable)<br><br><b>! This is buggy and not finished yet !</b>">Watermark</span>
-                        <div class="input-field">
-                            <input placeholder="Watermark" id="watermark" type="text" class="validate">
-                        </div>
-                    </div>
+                    <!-- Watermark Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Adds protection to the watermark string to prevent it from being edited or deleted.">Protect Watermark</span>
-                        <label>
-                            <input type="checkbox" class="filled-in" id="protect_watermark" checked="true" />
-                            <span></span>
-                        </label>
-                    </div>-->
-                    <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Adds a watermark to your bytecode when using Constant Chunk 2. (keep empty to disable) (EXPERIMENTAL)">Bytecode Watermark</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Bytecode watermark (experimental)">Bytecode Watermark</span>
                         <div class="input-field">
                             <input placeholder="Watermark" id="bytecode_watermark" type="text" class="validate">
                         </div>
@@ -325,40 +295,34 @@
 
                     <div class="seperator"></div>
 
+                    <!-- Performance Settings -->
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Memoizes expensive function calls and caches them to avoid redundant computations. (EXPERIMENTAL)">Memoize Functions Calls</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Cache function calls (experimental)">Memoize Functions</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="memoize_function_calls" checked="true" />
                             <span></span>
                         </label>
                     </div>
-
                     <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Won't inject decoder functions after specific functions were applied. (e.g: ByteStrings, NumberStrings, ...)">No Decoder Functions</span>
+                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Skip decoder function injection">No Decoder Functions</span>
                         <label>
                             <input type="checkbox" class="filled-in" id="no_decoder_functions" checked="false" />
                             <span></span>
                         </label>
                     </div>
-
-                    <!--<div class="seperator"></div>
-
-                    <div class="setting">
-                        <span class="setting-name tooltipped" data-position="right" data-tooltip="Your Tester access key.<br>Only given to a few people.">Tester Access Key</span>
-                        <div class="input-field">
-                            <input placeholder="Tester Access Key" id="tester_access_key" type="password" class="validate">
-                        </div>
-                    </div>-->
                 </div>
             </div>
             <div class="modal-footer">
-                <button href="#!" class="waves-red waves-effect btn-flat red-text tooltipped" id="resetdefault" data-position="top" data-tooltip="Resets all settings to default. (This may fix some errors)">Reset to Default</button>
+                <button href="#!" class="waves-red waves-effect btn-flat red-text tooltipped" id="resetdefault" data-position="top" data-tooltip="Reset all settings to default">Reset to Default</button>
                 <button href="#!" class="modal-close waves-light waves-effect btn-flat white-text" id="close">Close</button>
             </div>
         </div>
-        <!-- Left Sidenav Button -->
-        <a class="waves-effect waves-light btn-floating btn-small transparent sidenav-openbtn tooltipped sidenav-trigger" notif-count="0" data-tooltip="Menu" data-position="right" data-target="slide-out"><i class="material-icons">menu</i></a>
+
+        <!-- Menu Toggle Button -->
+        <a class="waves-effect waves-light btn-floating btn-small transparent sidenav-openbtn tooltipped sidenav-trigger" 
+           notif-count="0" data-tooltip="Menu" data-position="right" data-target="slide-out">
+            <i class="material-icons">menu</i>
+        </a>
     </div>
 </body>
-
 </html>
